@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.aux
+*.log
+*.out
+*.pdf
+*.docx
+*.zip
+.env
+.env.*
+
