@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-Copy-ready workflows: [Prompt Library](PROMPTS.md) | [中文提示词库](PROMPTS.zh-CN.md)
+Copy-ready workflows: [Prompt Library](PROMPTS.md) | [中文提示词库](PROMPTS.zh-CN.md) | [Changelog](CHANGELOG.md)
 
 **Guide every draft toward peer review.**
 
@@ -11,6 +11,10 @@ Peerward is an evidence-based AI research-writing mentor for the full lifecycle 
 The name combines *peer* with the directional suffix *-ward*: the system helps move each draft toward the standard expected in supervisor and peer review without claiming to guarantee correctness or acceptance.
 
 It is designed for research in control, optimization, multi-agent systems, autonomous systems, and AI for control. The Skill focuses on why a revision is needed, not merely how a sentence should be polished.
+
+## Latest update
+
+Peerward now routes requests by the user's intended outcome. Requests asking how to improve a manuscript default to actionable **author revision** guidance; quality scoring and mock-review formats are used when requested. Critical and high-priority diagnoses are converted into a traceable chain from manuscript evidence to revision action and validation. See the [Changelog](CHANGELOG.md).
 
 ## Install
 
@@ -34,6 +38,8 @@ If reviewer comments or a response letter are unavailable, Peerward can still re
 - evidence-indexed manuscript quality evaluation;
 - professional mock peer review;
 - reviewer-driven revision and verified response strategy.
+
+These capabilities are routed as distinct operating modes: author revision, quality evaluation, mock review, reviewer revision, response evaluation, and student guidance.
 
 The writing guidance is an original synthesis of established research-writing and mathematical-writing sources. Source titles are recorded for provenance, but copyrighted textbook text is not included.
 

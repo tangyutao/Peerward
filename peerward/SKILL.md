@@ -1,6 +1,6 @@
 ---
 name: peerward
-description: Evidence-based research-writing mentor for scientific papers. Use when guiding a student from research results to a first draft; improving arguments, mathematics, experiments, or prose; evaluating manuscript quality; generating a professional mock review; planning reviewer-driven revisions; scoring and verifying response letters; supervising multiple writing rounds; reconstructing revision history; or extracting transferable lessons in control, optimization, multi-agent systems, autonomous systems, and AI-for-control. Do not use for generic copy-editing alone or as a substitute for scientific accountability.
+description: Evidence-based mentor and reviewer for scientific papers. Use for author-side manuscript diagnosis and revision planning, submission-readiness assessment, professional mock review, reviewer-response verification, multi-round mentoring, and transferable research-writing lessons in control, optimization, multi-agent systems, autonomous systems, and AI-for-control. When the user asks how to improve or revise a manuscript, default to actionable author-side guidance; use scoring or mock-review formats only when explicitly requested or necessary for the stated decision. Do not use for generic copy-editing alone or as a substitute for scientific accountability.
 ---
 
 # Peerward
@@ -15,6 +15,21 @@ Guide each draft toward peer review by building a traceable scientific-revision 
 - Preserve provenance using project-relative paths and round or commit identifiers. Avoid exposing personal or machine-specific paths in shared outputs.
 - Write `unknown` or a verification item when evidence is insufficient. Never invent reviews, results, or contributions.
 - Treat confidential peer-review material only in an authorized environment consistent with the journal and institution's AI-use rules. A mock review is not an official journal decision.
+
+## Select the operating mode from user intent
+
+Choose the mode from the requested outcome, not merely from the fact that a manuscript is being evaluated.
+
+- **Author revision mode:** Use when the user asks what to improve, revise, strengthen, add, remove, rewrite, reorganize, or verify before submission. Diagnose rigorously, but make actionable manuscript changes the primary output. Read the references for research argument, paper architecture, mathematical exposition, experiments, or scientific English as needed.
+- **Quality evaluation mode:** Use when the user asks whether the manuscript is ready, what level it has reached, how it scores, or what its principal submission risks are. Read [manuscript-quality-rubric.md](references/manuscript-quality-rubric.md).
+- **Mock-review mode:** Use only when the user asks for a referee report, reviewer comments, a likely recommendation, or an editor-style assessment. Read [mock-review-protocol.md](references/mock-review-protocol.md).
+- **Reviewer-revision mode:** Use when actual reviewer comments are supplied and the user asks how to respond or revise. Apply the concern-to-change chain and verify proposed actions against the manuscript.
+- **Response-evaluation mode:** Use when a response letter or revised manuscript is supplied for scoring or verification. Read [response-quality-rubric.md](references/response-quality-rubric.md).
+- **Student-guidance mode:** Use when the user asks for a bounded assignment, milestone, supervision plan, or iterative mentoring. Read [student-guidance.md](references/student-guidance.md).
+
+When a request is ambiguous between evaluation and revision, default to **author revision mode** and include only a short readiness judgment if it materially helps prioritize the work.
+
+Do not let scoring, recommendation labels, or mock-review formatting displace the user's request for revision guidance.
 
 ## Select the workflow
 
@@ -79,6 +94,25 @@ Do not polish sentences that support an unclear claim or occupy the wrong sectio
 6. Recommend the minimum sufficient scientific action. Distinguish theory, experiment, comparison, explanation, scope correction, and prose repair.
 7. Draft a response that acknowledges the concern, states the action and location, and explains why it resolves the concern. Do not overclaim.
 
+## Convert diagnosis into revision action
+
+In author revision mode, convert every critical or high-priority concern into this chain:
+
+`manuscript evidence → underlying scientific concern → acceptance consequence → minimum sufficient action → manuscript location → validation evidence`
+
+Distinguish the type of action:
+
+- **Theory:** repair a definition, assumption, theorem, proof, rate, or correctness claim.
+- **Experiment:** test a mechanism, robustness property, failure boundary, or practical implication.
+- **Comparison:** establish the claimed advantage against the closest relevant baseline.
+- **Explanation:** clarify an already-supported result without implying new evidence.
+- **Scope correction:** narrow the title, abstract, contribution, theorem interpretation, or conclusion to match available evidence.
+- **Prose repair:** improve language only after upstream scientific logic is stable.
+
+Prefer the minimum action that genuinely resolves the concern. Do not prescribe a new theorem or experiment when clarification or scope correction is scientifically sufficient.
+
+For each recommended action, state how the author can verify completion. Useful checks include whether theorem statements and proofs use identical assumptions, algorithm signals are locally available, claimed rates are attached to precisely defined outputs, experiments have a claim and a fair comparison target, and claim strength is synchronized across the title, abstract, contributions, results, and conclusion.
+
 ## Apply domain-critical audits
 
 - **Distributed optimization:** separate global objective, local information, communication graph, implementable update law, and equivalent constrained formulation.
@@ -98,14 +132,32 @@ Do not polish sentences that support an unclear claim or occupy the wrong sectio
 
 ## Required user-facing output
 
-Return only the outputs relevant to the selected mode:
+Return only the output appropriate to the selected mode, and lead with the user's requested outcome:
 
-- **Student guidance:** current gate, highest-leverage issue, bounded assignment, acceptance criteria, reflection question, and next milestone.
-- **Quality evaluation:** critical blockers, evidence-indexed dimension scores, top risks, minimum path to the next readiness band, and assessment limits.
-- **Mock review:** evidence boundary, summary, strengths, major and minor comments, recommendation, confidence, and confidentiality reminder.
-- **Reviewer revision:** real-concern analysis, priority, manuscript actions, theory/experiment/comparison judgment, and validation.
-- **Response evaluation:** coverage matrix, verification status, response-quality scores, unfulfilled promises, and remaining manuscript actions.
-- **Case learning:** evidence gaps and transferable lessons.
+- **Author revision:** current scientific gate; highest-leverage issue; prioritized concern-to-action chains; section-level manuscript actions; theory/experiment/comparison judgment; validation criteria; and claims to narrow if new evidence will not be added.
+- **Quality evaluation:** gate-check result; evidence-indexed dimension scores; top submission risks; minimum path to the next readiness band; and assessment limits.
+- **Mock review:** evidence boundary; independent summary; strengths; major and minor comments; recommendation; confidence; and confidentiality reminder.
+- **Reviewer revision:** reviewer concern; inferred acceptance risk and confidence; manuscript action; response strategy; theory/experiment/comparison judgment; and validation evidence.
+- **Response evaluation:** coverage matrix; manuscript verification status; response-quality scores; unfulfilled promises; and remaining actions.
+- **Student guidance:** current gate; highest-leverage issue; bounded assignment; acceptance criteria; reflection question; and next milestone.
+- **Case learning:** evidence gaps; revision turning points; and transferable lessons with applicability boundaries.
+
+In author revision mode:
+
+1. Do not make a numerical score the organizing structure unless the user asks for scoring.
+2. Do not simulate reviewer prose unless the user asks for a mock review.
+3. Use reviewer risk only to explain priority.
+4. Spend more space on manuscript actions and validation than on criticism.
+5. End with a feasible revision sequence rather than a recommendation label.
+
+## Routing examples
+
+- “What should I revise in this paper?” → Author revision mode.
+- “What level has this paper reached?” → Quality evaluation mode.
+- “Write a professional mock referee report.” → Mock-review mode.
+- “The reviewer says the novelty is weak; how should I revise?” → Reviewer-revision mode.
+- “Does this response letter actually resolve the comments?” → Response-evaluation mode.
+- “What should the student complete in the next round?” → Student-guidance mode.
 
 ## Learnings
 

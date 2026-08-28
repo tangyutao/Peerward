@@ -1,7 +1,7 @@
 interface:
   display_name: "Peerward"
   short_description: "AI mentor from first draft to peer review"
-  default_prompt: "Use $peerward as an evidence-based research-writing mentor to guide, evaluate, review, or revise this scientific paper."
+  default_prompt: "Use $peerward as an evidence-based research-writing mentor and reviewer. Follow the requested outcome: default improvement requests to actionable author-side revision guidance, and use scoring or mock-review formats only when requested."
 
 policy:
   allow_implicit_invocation: true
